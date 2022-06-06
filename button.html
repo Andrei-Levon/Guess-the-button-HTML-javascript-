@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            body {
+                height: 900px;
+                background-image: radial-gradient(#FFF0F5, #5F9EA0);
+                text-align: center;
+                font-family: "Verdana";
+                color: #2F4F4F;
+            }
+            div {
+                padding: 300px;
+            }
+            button {
+                font-family: "Verdana";
+                font-size: 15px;
+                color: white;
+                padding: 13px 27px;
+                margin: 3px 20px;
+                background-color: #2F4F4F;
+                border: none;
+                border-radius: 17px;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: white;
+                color: #2F4F4F;
+                transition: 0.5s;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h2>Choose a button</h2>
+            <button class ="choice" onclick="document.getElementById('winner').innerHTML = this.value">1</button>
+            <button class ="choice" onclick="document.getElementById('winner').innerHTML = this.value">2</button>
+            <button class ="choice" onclick="document.getElementById('winner').innerHTML = this.value">3</button>
+            <p id="winner"></p>
+            <button onclick="location.reload()">Try again</button>
+        </div>
+        <script>
+            let aux = Math.floor(Math.random() * 3);
+            const collection = document.getElementsByClassName("choice");
+            for (let i = 0; i < collection.length; ++i) {
+                if (i == aux) {
+                    collection[i].value = "WINNER!";
+                } else {
+                    collection[i].value = "YOU LOST :(";
+                }
+            }
+        </script>
+    </body>
+</html>
